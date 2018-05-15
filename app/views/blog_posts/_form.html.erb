@@ -4,7 +4,7 @@
 	<h2><%= pluralize(@blog_post.errors.count, "error")%> prohibited this Blog Post from being saved: </h2>
 	
 	<ul>
-		<% @blog_post.errors.full_messages.each do |messge| %>
+		<% @blog_post.errors.full_messages.each do |message| %>
 		<li><%= message %></li>
 		<% end %>
 	</ul>
@@ -16,8 +16,10 @@
 		<%= form.text_field :title, class: "form-control", placeholder: "Blog Title..." %>
 	</div>
 	
+	<%= form.hidden_field :user_id, value: current_user.id %>
+	
 	<div class="form-group">
-		<%= form.text_field :author, class: "form-control", placeholder: "Your name her..." %>
+		<%= form.text_field :author, class: "form-control", placeholder: "Your name here..." %>
 	</div>
 	
 	<div class="form-group">
